@@ -6,8 +6,7 @@
 # =============================================================================
 source("R/config.R"); source("R/functions.R"); library(data.table)
 O <- PATHS$output; ok <- TRUE
-check <- function(label, cond) { cat(if (isTRUE(cond)) "PASS" else "FAIL", "|", label, "
-"); if (!isTRUE(cond)) ok <<- FALSE }
+check <- function(label, cond) { cat(if (isTRUE(cond)) "PASS" else "FAIL", "|", label, "\n"); if (!isTRUE(cond)) ok <<- FALSE }
 
 sc <- fread(file.path(O, "audit", "solver_check.csv"))
 check("batch GLPK equals lpSolve in the original multiplier form (max abs diff < 1e-8)", max(abs(sc$glpk - sc$lpsolve)) < 1e-8)
@@ -44,5 +43,4 @@ if (file.exists("tests/expected_values.csv")) {
           length(v) == 1 && abs(v - ev$expected[i]) <= ev$tolerance[i])
   }
 }
-if (!ok) stop("At least one check failed.") else cat("All checks passed.
-")
+if (!ok) stop("At least one check failed.") else cat("All checks passed.\n")
