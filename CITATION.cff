@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "DEA-MP/H: Endogenous weights and monotonicity in multidimensional poverty measurement — replication package"
+type: software
+authors:
+  - family-names: "Brandão"
+    given-names: "Moisés Luna"
+    affiliation: "Escola de Engenharia de São Carlos, Universidade de São Paulo"
+  - family-names: "Mariano"
+    given-names: "Enzo Barberio"
+    affiliation: "Universidade Estadual Paulista (UNESP)"
+  - family-names: "Rebelatto"
+    given-names: "Daisy Aparecida do Nascimento"
+    affiliation: "Escola de Engenharia de São Carlos, Universidade de São Paulo"
+license: MIT
+version: "1.1.0"
+date-released: "2026-10-24"
+keywords:
+  - multidimensional deprivation
+  - data envelopment analysis
+  - relative deprivation
+  - Brazilian census
+
+repository-code: "https://github.com/moisesluna2026/dea-mp-h"
