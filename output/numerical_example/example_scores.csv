@@ -1,0 +1,5 @@
+household,S,level,group,frontier,theta_no_floor,theta_floor,h
+A,0,0,"A, B, C, D","B, C, D",0.5,0.4625,0.4625
+B,0.5,0.5,"B, C, D","B, C, D",1,0.925,0.925
+C,1,1,"C, D","C, D",1,0.95,0.95
+D,1.5,1,"C, D","C, D",1,1,1
