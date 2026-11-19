@@ -1,10 +1,10 @@
 # DEA-MP/H: household multidimensional deprivation with a fixed DEA reference
 
-Replication package accompanying manuscript version 11 of *Pesos endógenos e monotonicidade na mensuração da pobreza multidimensional* (Endogenous weights and monotonicity in multidimensional poverty measurement).
+Replication package for the article *Endogenous weights and monotonicity in multidimensional poverty measurement*.
 
 The package rebuilds every number, table and robustness check of the article from the
 public microdata of the Brazilian Demographic Census (IBGE, 2010 and 2022). No
-intermediate file produced by the author is needed: the scripts download the
+intermediate file produced by the authors is needed: the scripts download the
 official files, build the household bases, estimate the index and run the audits.
 
 ## What the method does
@@ -24,7 +24,7 @@ Four features make the scores comparable across households, places and years:
    year (2010), and then frozen. A household evaluated later, or in another place, is compared
    with the same frontier. A change in one household therefore never changes the score of
    another household (non-interference).
-2. **Comparison groups by categorical deprivation (Banker and Morey).** A categorical score
+2. **Comparison groups by categorical deprivation (after Banker and Morey, 1986).** A categorical score
    S (education, water, sewage, garbage, walls, tenure) defines nested groups: a household
    is compared with reference households at or above the lower limit of its admissible
    categorical band. The group used, k*(o), is the most restricted compatible band
@@ -42,7 +42,8 @@ Four features make the scores comparable across households, places and years:
    remains in a frontier. Removed households are still evaluated and counted in the index.
 
 The index of a population is the weighted mean of min(θ, 1). It is read in relative terms
-against the weighted median of the base year (Townsend's relative deprivation): T = M / m̃0,
+against the weighted median of the base year, following Townsend's notion of relative
+deprivation: T = M / m̃0,
 and H is the share of households with a score of at least twice m̃0.
 
 ## Requirements
@@ -79,9 +80,9 @@ Paths can be changed in `R/config.R` or with environment variables:
 
 | Census | Source | Files |
 |---|---|---|
-| 2010 | IBGE, Censo Demográfico 2010, Resultados Gerais da Amostra, microdados. <https://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_Gerais_da_Amostra/Microdados/> | one zip per UF (São Paulo in two parts) with fixed-width files `Amostra_Domicilios_*.txt` and `Amostra_Pessoas_*.txt`; layout in `Documentacao.zip` |
-| 2022 | IBGE, Censo Demográfico 2022, microdados da amostra de acesso público. <https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/Microdados_de_acesso_Publico/csv/> | `Todas_as_UFs.zip` with `Domicilios_<UF>_*.csv` and `Pessoas_<UF>_*.csv` |
-| IDHM 2010 | Atlas do Desenvolvimento Humano no Brasil (PNUD, Ipea and FJP, 2013) | eight values, typed in `R/config.R` |
+| 2010 | IBGE, Censo Demográfico 2010, Resultados Gerais da Amostra, microdados (2010 Census sample microdata). <https://ftp.ibge.gov.br/Censos/Censo_Demografico_2010/Resultados_Gerais_da_Amostra/Microdados/> | one zip per federative unit (UF, i.e., state; São Paulo in two parts) with fixed-width files `Amostra_Domicilios_*.txt` and `Amostra_Pessoas_*.txt`; layout in `Documentacao.zip` |
+| 2022 | IBGE, Censo Demográfico 2022, microdados da amostra de acesso público (2022 Census public-use sample microdata). <https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/Microdados_de_acesso_Publico/csv/> | `Todas_as_UFs.zip` with `Domicilios_<UF>_*.csv` and `Pessoas_<UF>_*.csv` |
+| IDHM 2010 (Municipal Human Development Index) | Atlas do Desenvolvimento Humano no Brasil (UNDP, Ipea and FJP, 2013) | eight values, typed in `R/config.R` |
 
 IBGE releases corrections to the microdata. The release used in the article is identified
 by the SHA-256 checksums in `output/inputs_sha256.csv`; a different release may change
@@ -148,7 +149,7 @@ values printed in the article.
   `audit/categorical_monotonicity.csv` checks, for the main reference and for cut-offs 2
   and 4, that no score falls when a household moves to a more restricted group.
 * **Batch solution.** With the change of variables p_r = v_r x_ro and q_s = u_s y_so, the
-  normalization, objective and share floor of model (1) are identical for every evaluated
+  normalization, objective and share floor of the evaluation model are identical for every evaluated
   household; only the coefficients of the frontier constraints change. All households of one
   level are then solved in one call to `rDEA::multi_glpk_solve_LP`. The transformation is
   exact, and stage 07 verifies it against the original form.
@@ -158,13 +159,13 @@ values printed in the article.
 
 ## Citation
 
-See `CITATION.cff`. The archived version and its DOI are linked from the GitHub release.
+See `CITATION.cff`. Archived version (Zenodo): <https://doi.org/10.5281/zenodo.23624408>.
 
 ## License
 
 Code: MIT (see `LICENSE`). The census microdata are public data distributed by IBGE and are
 not redistributed in this repository.
 
-## Release 1.1.0
+## Version 1.1.0
 
-This release accompanies manuscript version 11 (24 October 2026). It contains the code, variable documentation, generated results and computational checks. The current execution log records completion of the robustness calculations and successful checks, including categorical monotonicity and exclusion from all stored frontiers. Public Census microdata and individual intermediate RDS bases are not included; the scripts download the official inputs from IBGE.
+Version 1.1.0 (24 October 2026) contains the code, variable documentation, generated results and computational checks. The execution log records the completion of all robustness calculations and the passing of every check, including categorical monotonicity and the exclusion of screened households from all stored frontiers. Public Census microdata and individual intermediate RDS bases are not included; the scripts download the official inputs from IBGE.
