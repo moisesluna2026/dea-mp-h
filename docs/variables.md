@@ -25,7 +25,8 @@ converted to reais of July 2022 with the IPCA number index (IBGE, SIDRA table 17
 
 Before estimation (function `prepare_matrices`): income of zero or less becomes
 R$ 1 and income is expressed in thousands of reais; any other zero resource or
-demand becomes 0.001. The CCR model requires strictly positive data.
+demand becomes 0.001. The share floor cannot be met by a household with a zero resource,
+so resources must be strictly positive.
 
 ## Categorical deprivation score
 
@@ -53,7 +54,7 @@ The exact code-by-code mapping is in `R/02_build_census2010.R` and `R/03_build_c
 | Walls | masonry or rammed earth with coating = 5 | 2022 does not separate the two cases |
 | Bathrooms | capped at 9 | cap imposed in the 2022 public file |
 | Electricity | not used | not asked in 2022 |
-| Territorial unit for 2022 | UF | the 2022 public file has no municipality code |
+| Territorial unit for 2022 | UF (federative unit, i.e., state) | the most detailed geographic level of the 2022 public-use file; municipal estimates require the controlled-access microdata |
 
 ## Eligibility
 
