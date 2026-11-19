@@ -1,0 +1,9 @@
+parameter,value
+delta,0.5
+min_ref,27
+alpha,0.05
+zero_constant,0.001
+kappa,2
+ipca_jul2010,3111.05
+ipca_jul2022,6411.95
+screen,3
