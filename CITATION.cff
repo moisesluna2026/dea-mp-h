@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "DEA-MP/H: replication package for Endogenous weights and monotonicity in multidimensional poverty measurement"
+title: "DEA-MP/H: replication package for Endogenous weights in household multidimensional poverty measurement: monotonicity and subgroup consistency"
 type: software
 authors:
   - family-names: "Brandão"

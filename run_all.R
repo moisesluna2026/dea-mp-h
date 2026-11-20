@@ -7,7 +7,8 @@
 # =============================================================================
 stages <- c("01" = "R/01_download.R", "02" = "R/02_build_census2010.R", "03" = "R/03_build_census2022.R",
             "04" = "R/04_numerical_example.R", "05" = "R/05_municipal.R", "06" = "R/06_national.R",
-            "07" = "R/07_audit.R", "08" = "R/08_robustness.R", "09" = "R/09_manifest.R")
+            "07" = "R/07_audit.R", "08" = "R/08_robustness.R",
+            "10" = "R/10_relative_poverty.R", "09" = "R/09_manifest.R")
 needed <- c("data.table", "rDEA", "lpSolve")
 missing <- needed[!vapply(needed, requireNamespace, logical(1), quietly = TRUE)]
 if (length(missing)) stop("Install the packages: ", paste(missing, collapse = ", "))

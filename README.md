@@ -1,6 +1,6 @@
 # DEA-MP/H: household multidimensional deprivation with a fixed DEA reference
 
-Replication package for the article *Endogenous weights and monotonicity in multidimensional poverty measurement*.
+Replication package for the article *Endogenous weights in household multidimensional poverty measurement: monotonicity and subgroup consistency*.
 
 The package rebuilds every number, table and robustness check of the article from the
 public microdata of the Brazilian Demographic Census (IBGE, 2010 and 2022). No
@@ -103,6 +103,7 @@ are in [`docs/variables.md`](docs/variables.md).
 | 06 | `06_national.R` | 27 UFs: every eligible household of 2010 forms the reference (with screening); every eligible household of 2010 and 2022 is evaluated; dominance | `national/ufs.csv`, `national/regions.csv`, `national/brazil.csv`, `national/dominance.csv`, `national/screened_households.csv` | 10 min |
 | 07 | `07_audit.R` | solver check, monotonicity, non-interference (directed shocks to income, bathrooms, formal jobs and residents; random shocks), subgroup consistency | `audit/` | minutes |
 | 08 | `08_robustness.R` | bootstrap, zero constant, screening cut-offs, alternative references, half-sample draws, grids of α and δ, national sensitivity | `robustness/` | 30 to 60 min |
+| 10 | `10_relative_poverty.R` | relative line κ times the anchor median (κ = 2): incidence H, intensity A and adjusted index M = H × A for the eight municipalities, the regions, the UFs and Brazil, with κ = 1.5 and 3 as sensitivity; reuses the scores of stages 05 and 06 (Table 6 of the article) | `relative/` | seconds |
 | 09 | `09_manifest.R` | session information, parameters and SHA-256 of all outputs | `session_info.txt`, `parameters.csv`, `outputs_sha256.csv` | seconds |
 
 Times refer to a 2020s laptop (Apple M-series, 8 GB) and are indicative. Independent re-estimations
