@@ -103,7 +103,7 @@ are in [`docs/variables.md`](docs/variables.md).
 | 06 | `06_national.R` | 27 UFs: every eligible household of 2010 forms the reference (with screening); every eligible household of 2010 and 2022 is evaluated; dominance | `national/ufs.csv`, `national/regions.csv`, `national/brazil.csv`, `national/dominance.csv`, `national/screened_households.csv` | 10 min |
 | 07 | `07_audit.R` | solver check, monotonicity, non-interference (directed shocks to income, bathrooms, formal jobs and residents; random shocks), subgroup consistency | `audit/` | minutes |
 | 08 | `08_robustness.R` | bootstrap, zero constant, screening cut-offs, alternative references, half-sample draws, grids of α and δ, national sensitivity | `robustness/` | 30 to 60 min |
-| 10 | `10_relative_poverty.R` | relative line κ times the anchor median (κ = 2): incidence H, intensity A and adjusted index M = H × A for the eight municipalities, the regions, the UFs and Brazil, with κ = 1.5 and 3 as sensitivity; reuses the scores of stages 05 and 06 (Table 6 of the article) | `relative/` | seconds |
+| 10 | `10_relative_poverty.R` | relative line κ times the anchor median (κ = 2): incidence H, intensity A and adjusted index M = H × A for the eight municipalities, the regions, the UFs and Brazil, with κ = 1.5 and 3 as sensitivity; reuses the scores of stages 05 and 06 (Table 10 of the article) | `relative/` | seconds |
 | 09 | `09_manifest.R` | session information, parameters and SHA-256 of all outputs | `session_info.txt`, `parameters.csv`, `outputs_sha256.csv` | seconds |
 
 Times refer to a 2020s laptop (Apple M-series, 8 GB) and are indicative. Independent re-estimations
@@ -169,6 +169,6 @@ not redistributed in this repository.
 
 ## Versions
 
-Version 1.2.0 (20 November 2026) adds stage 10 (`R/10_relative_poverty.R`), which computes incidence, intensity and the adjusted index at the relative line from the scores of stages 05 and 06, with outputs in `output/relative/` (Table 6 of the article). Stages 01 to 09 and their results are unchanged.
+Version 1.2.0 (20 November 2026) adds stage 10 (`R/10_relative_poverty.R`), which computes incidence, intensity and the adjusted index at the relative line from the scores of stages 05 and 06, with outputs in `output/relative/` (Table 10 of the article). Stages 01 to 09 and their results are unchanged.
 
 Version 1.1.0 (24 October 2026) contains the code, variable documentation, generated results and computational checks. The execution log records the completion of all robustness calculations and the passing of every check, including categorical monotonicity and the exclusion of screened households from all stored frontiers. Public Census microdata and individual intermediate RDS bases are not included; the scripts download the official inputs from IBGE.
