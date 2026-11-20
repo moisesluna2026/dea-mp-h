@@ -160,13 +160,15 @@ values printed in the article.
 
 ## Citation
 
-See `CITATION.cff`. Archived version (Zenodo): <https://doi.org/10.5281/zenodo.23624408>.
+See `CITATION.cff`. Archived version 1.2.0 (Zenodo): <https://doi.org/10.5281/zenodo.24395236>. Version 1.1.0: <https://doi.org/10.5281/zenodo.23624408>.
 
 ## License
 
 Code: MIT (see `LICENSE`). The census microdata are public data distributed by IBGE and are
 not redistributed in this repository.
 
-## Version 1.1.0
+## Versions
+
+Version 1.2.0 (20 November 2026) adds stage 10 (`R/10_relative_poverty.R`), which computes incidence, intensity and the adjusted index at the relative line from the scores of stages 05 and 06, with outputs in `output/relative/` (Table 6 of the article). Stages 01 to 09 and their results are unchanged.
 
 Version 1.1.0 (24 October 2026) contains the code, variable documentation, generated results and computational checks. The execution log records the completion of all robustness calculations and the passing of every check, including categorical monotonicity and the exclusion of screened households from all stored frontiers. Public Census microdata and individual intermediate RDS bases are not included; the scripts download the official inputs from IBGE.
